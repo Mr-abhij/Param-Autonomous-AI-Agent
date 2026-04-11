@@ -1,8 +1,19 @@
 # PARAM Agent
 
+<div align="center">
+
 **Parallel Multi-Agent AI System**
 
 A custom-built agentic AI system that decomposes complex goals, executes subtasks in parallel using multiple AI providers, and synthesizes comprehensive reports.
+
+[![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0.4-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.0.0-646CFF?logo=vite)](https://vitejs.dev/)
+[![Supabase](https://img.shields.io/badge/Supabase-3ECFF8?logo=supabase)](https://supabase.com/)
+
+</div>
+
+---
 
 ## 🎯 Problem
 
@@ -262,8 +273,8 @@ This project is open source and available under the MIT License.
 
 ---
 
-Built by Abhishek
+<div align="center">
 
-#   P a r a m - A u t o n o m o u s - A I - A g e n t 
- 
- 
+Built with ❤️ by [Your Name]
+
+</div>
