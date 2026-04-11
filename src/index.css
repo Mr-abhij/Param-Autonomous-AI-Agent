@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/* Voice waveform animation */
+@keyframes voiceBar {
+  0% { height: 4px; }
+  100% { height: 20px; }
+}
+
+/* Print styles */
+@media print {
+  body * { visibility: hidden; }
+  #final-report-section, #final-report-section * { visibility: visible; }
+  #final-report-section { position: absolute; left: 0; top: 0; width: 100%; }
+}
+
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 18% 7%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 18% 7%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 162 72% 46%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 220 16% 12%;
+    --secondary-foreground: 210 20% 80%;
+
+    --muted: 220 14% 10%;
+    --muted-foreground: 215 12% 50%;
+
+    --accent: 162 72% 46%;
+    --accent-foreground: 220 20% 4%;
+
+    --destructive: 0 72% 56%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 14% 14%;
+    --input: 220 14% 14%;
+    --ring: 162 72% 46%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 18% 6%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 162 72% 46%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 14% 10%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 220 14% 14%;
+    --sidebar-ring: 162 72% 46%;
+
+    /* Custom tokens */
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 20% 4%;
+    --success: 162 72% 46%;
+    --success-foreground: 220 20% 4%;
+    --info: 210 80% 56%;
+    --info-foreground: 220 20% 4%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(162 72% 46%), hsl(180 70% 40%));
+    --gradient-surface: linear-gradient(180deg, hsl(220 18% 8%), hsl(220 18% 5%));
+    --gradient-glow: radial-gradient(ellipse at 50% 0%, hsl(162 72% 46% / 0.08) 0%, transparent 60%);
+
+    --shadow-glow: 0 0 20px hsl(162 72% 46% / 0.15);
+    --shadow-card: 0 1px 3px hsl(0 0% 0% / 0.3), 0 0 0 1px hsl(220 14% 14%);
+
+    --font-sans: 'Outfit', system-ui, sans-serif;
+    --font-heading: 'Space Grotesk', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  .glow-border {
+    box-shadow: var(--shadow-glow), var(--shadow-card);
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .surface-glow {
+    background-image: var(--gradient-glow);
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .typing-cursor::after {
+    content: '▊';
+    animation: blink 1s step-end infinite;
+    @apply text-primary ml-0.5;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  @keyframes nodePulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.08); }
+  }
+
+  .node-pulse circle {
+    animation: nodePulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.2);
+    border-radius: 2px;
+  }
+}
+
+@keyframes borderShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
