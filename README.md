@@ -262,11 +262,8 @@ This project is open source and available under the MIT License.
 
 ---
 
-<div align="center">
-
 Built by Abhishek
 
-</div>
 #   P a r a m - A u t o n o m o u s - A I - A g e n t 
  
  
